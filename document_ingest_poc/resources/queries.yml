@@ -1,0 +1,25 @@
+resources:
+  queries:
+    my_query:
+    documents_by_date:
+      name: Documents by Date Range
+      description: Filter documents by date range
+      query: |
+        SELECT 
+          path,
+          extracted_text,
+          processed_at
+        FROM ${var.catalog}.${var.schema}.parsed_documents
+        WHERE processed_at BETWEEN {{start_date}} AND {{end_date}}
+        ORDER BY processed_at DESC
+
+      # Define parameters
+      parameters:
+        - name: start_date
+          title: Start Date
+          type: date
+          value: "2024-01-01"
+        - name: end_date
+          title: End Date
+          type: date
+          value: "2024-12-31"

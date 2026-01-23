@@ -24,6 +24,16 @@ resource "databricks_grants" "schema_bronze_use" {
   }
 }
 
+
+resource "databricks_grants" "schema_silver_use" {
+  schema = "${databricks_catalog.catalog.name}.${databricks_schema.silver.name}"
+
+  grant {
+    principal  = databricks_service_principal.service_principal_application_id.application_id
+    privileges = ["USE_SCHEMA","SELECT"]
+  }
+}
+
 resource "databricks_grants" "volume_bronze" {
   volume = "${databricks_catalog.catalog.name}.${databricks_schema.bronze.name}.landing_zone"
 
