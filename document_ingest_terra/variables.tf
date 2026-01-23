@@ -24,3 +24,8 @@ variable "external_storage_location" {
     type = string
     sensitive = true
 }
+
+variable "service_principal_application_id" {
+    type = string
+    sensitive = true
+}
