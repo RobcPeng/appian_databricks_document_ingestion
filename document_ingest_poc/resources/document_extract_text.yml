@@ -1,0 +1,16 @@
+resources:
+  pipelines:
+    document_extract_text:
+      name: document_extract_text
+      catalog: ${var.catalog}
+      schema: ${var.gold_schema}
+      serverless: true
+      root_path: "../src/document_ingest_poc_etl"
+
+      libraries:
+        - glob:
+            include: ../src/document_ingest_poc_etl/transformations/**
+
+      environment:
+        dependencies:
+          - --editable ${workspace.file_path}

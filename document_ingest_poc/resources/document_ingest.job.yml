@@ -18,6 +18,12 @@ resources:
             notebook_path: ${workspace.file_path}/src/document_ingest_poc/document_content_extraction
             source: WORKSPACE
           environment_key: Default
+        - task_key: "document_extract_text"
+          depends_on:
+            - task_key: "write_document_content"
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.document_extract_text.id}
+            full_refresh: false
       queue:
         enabled: true
       environments:

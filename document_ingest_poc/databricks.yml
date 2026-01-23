@@ -19,6 +19,8 @@ variables:
     description: The catalog to use
   schema:
     description: The schema to use
+  gold_schema:
+    description: Gold Schema
 
 targets:
   dev:
@@ -29,6 +31,7 @@ targets:
     variables:
       catalog: dev_appian_poc
       schema: 00_bronze
+      gold_schema: 02_gold
   prod:
     mode: production
     workspace:
