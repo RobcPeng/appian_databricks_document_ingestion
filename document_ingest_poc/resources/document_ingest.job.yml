@@ -15,7 +15,7 @@ resources:
           depends_on:
             - task_key: "raw_document_ingestion"
           notebook_task:
-            notebook_path: ${workspace.file_path}/src/document_ingest_poc/document_content_extraction
+            notebook_path: ${workspace.file_path}/src/document_transformations_silver/document_content_extraction
             source: WORKSPACE
           environment_key: Default
         - task_key: "document_extract_text"
