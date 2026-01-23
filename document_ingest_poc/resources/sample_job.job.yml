@@ -2,6 +2,10 @@ resources:
   jobs:
     run_document_ingestion:
       name: run_document_ingestion
+      trigger:
+        pause_status: UNPAUSED
+        file_arrival:
+          url: /Volumes/dev_appian_poc/00_bronze/landing_zone/
       tasks:
         - task_key: "1"
           pipeline_task:
