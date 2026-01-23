@@ -7,13 +7,13 @@ resources:
         file_arrival:
           url: /Volumes/dev_appian_poc/00_bronze/landing_zone/
       tasks:
-        - task_key: "1"
+        - task_key: "raw_document_ingestion"
           pipeline_task:
-            pipeline_id: 35d51ac3-be69-43fd-a628-6fcdd071bab8
-            full_refresh: true
+            pipeline_id: ${resources.pipelines.document_ingest_poc_etl.id}
+            full_refresh: false
         - task_key: write_document_content
           depends_on:
-            - task_key: "1"
+            - task_key: "raw_document_ingestion"
           notebook_task:
             notebook_path: ${workspace.file_path}/src/document_ingest_poc/document_content_extraction
             source: WORKSPACE

@@ -8,5 +8,6 @@ def appian_raw_document_ingest():
         spark.readStream.format("cloudFiles")
         .option("cloudFiles.format", "binaryFile")
         .option("pathGlobFilter", "*{pdf,docx,xlsx,png,jpg}")
+        .option("cloudFiles.schemaLocation", "/Volumes/dev_appian_poc/00_bronze/checkpoints/raw_ingest_schema")
         .load("/Volumes/dev_appian_poc/00_bronze/landing_zone/file_uploads/")
     )
