@@ -4,7 +4,6 @@ version = "0.0.1"
 authors = [{ name = "robertjustinianpeng@gmail.com" }]
 requires-python = ">=3.10,<3.13"
 dependencies = [
-    "chonkie[all]"
 ]
 
 [dependency-groups]
