@@ -19,6 +19,7 @@ def document_text_contents():
           END) as text
       FROM dev_appian_poc.`01_silver`.parsed_documents)
   SELECT
+    row_number() OVER (ORDER BY c.path) as row_num,
     c.path,
     c.text,
     concat_ws(" ",c.text) as full_text
