@@ -30,11 +30,16 @@ resources:
           notebook_task:
             notebook_path: ${workspace.file_path}/src/ai_pipelines/gen_ai_solution_dev
             source: WORKSPACE
-          environment_key: Default
+          environment_key: EmbeddingEnv
       queue:
         enabled: true
       environments:
         - environment_key: Default
           spec:
             environment_version: "4"
+        - environment_key: EmbeddingEnv
+          spec:
+            environment_version: "4"
+            dependencies:
+              - chonkie==1.5.2
       performance_target: PERFORMANCE_OPTIMIZED
