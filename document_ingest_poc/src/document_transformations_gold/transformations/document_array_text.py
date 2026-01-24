@@ -1,5 +1,5 @@
 from pyspark import pipelines as dp
-from pyspark.sql.functions import col
+from pyspark.sql.functions import col, expr, monotonically_increasing_id
 
 
 @dp.table(
@@ -17,9 +17,9 @@ def document_text_contents():
             THEN x:content::string 
             ELSE NULL 
           END) as text
-      FROM dev_appian_poc.`01_silver`.parsed_documents)
+      FROM STREAM(dev_appian_poc.`01_silver`.parsed_documents))
   SELECT
-    row_number() OVER (ORDER BY c.path) as row_num,
+     hash(c.path) as doc_id,
     c.path,
     c.text,
     concat_ws(" ",c.text) as full_text

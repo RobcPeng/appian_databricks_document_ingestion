@@ -24,6 +24,13 @@ resources:
           pipeline_task:
             pipeline_id: ${resources.pipelines.document_extract_text.id}
             full_refresh: false
+        - task_key: write_document_embedding
+          depends_on:
+            - task_key: "document_extract_text"
+          notebook_task:
+            notebook_path: ${workspace.file_path}/src/ai_pipelines/gen_ai_solution_dev
+            source: WORKSPACE
+          environment_key: Default
       queue:
         enabled: true
       environments:
