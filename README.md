@@ -2,26 +2,21 @@
 
 ## Scalability - Consumption Based Cost and Auto Scaling!
 
-Serverless compute: Auto-scales based on workload
-Concurrent processing: Handles multiple file uploads simultaneously
-Storage optimization: Delta Lake format with Z-order optimization
+-**Serverless compute:** Auto-scales based on workload -**Concurrent processing**: Handles multiple file uploads simultaneously -**Storage optimization:** Delta Lake format with Z-order optimization
 
 ## Security & Governance - Less Surfaces to worry about! PII Automation!
 
-Identity-based access: Service principal authentication
-Fine-grained permissions: Unity Catalog access controls
-Data lineage: Complete audit trail from raw files to embeddings
-Compliance: SOC2, GDPR-ready with proper configuration
+-**Identity-based access:** Service principal authentication -**Fine-grained permissions:** Unity Catalog access controls -**Data lineage:** Complete audit trail from raw files to embeddings -**Compliance:** SOC2, GDPR-ready with proper configuration
 
 ## Cost Optimization
 
-Serverless pricing: Pay only for compute used
-Intelligent caching: Delta Lake caching for repeated queries
-Lifecycle management: Automated data retention policies
+-**Serverless pricing:** Pay only for compute used -**Intelligent caching:** Delta Lake caching for repeated queries -**Lifecycle management:** Automated data retention policies
 
 ---
 
-# Appian Document Ingestion Platform - [AI Generated Documentation]
+[Disclaimer: AI Generated Documentation Below]
+
+# Appian Document Ingestion Platform -
 
 A production-ready AI-powered document processing system designed for enterprise content management. This platform leverages Databricks' serverless compute and Unity Catalog to create a scalable, secure, and intelligent document ingestion pipeline with vector search capabilities.
 
