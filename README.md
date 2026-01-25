@@ -10,6 +10,7 @@
 
 - **Identity-based access:** Service principal authentication
 - **Fine-grained permissions:** Unity Catalog access controls
+- **Attribute Based Permissions and Masking:** Masking on Rows and Columns based on user attributes, table column tags, etc.
 - **Data lineage:** Complete audit trail from raw files to embeddings
 - **Compliance:** SOC2, GDPR-ready with proper configuration
 
