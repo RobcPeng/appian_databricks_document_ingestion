@@ -19,6 +19,8 @@ Serverless pricing: Pay only for compute used
 Intelligent caching: Delta Lake caching for repeated queries
 Lifecycle management: Automated data retention policies
 
+---
+
 # Appian Document Ingestion Platform - [AI Generated Documentation]
 
 A production-ready AI-powered document processing system designed for enterprise content management. This platform leverages Databricks' serverless compute and Unity Catalog to create a scalable, secure, and intelligent document ingestion pipeline with vector search capabilities.
