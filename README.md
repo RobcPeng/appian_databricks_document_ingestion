@@ -4,7 +4,7 @@
 
 - **Serverless compute:** Auto-scales based on workload
 - **Concurrent processing**: Handles multiple file uploads simultaneously
-- **Storage optimization:** Delta Lake format with Z-order optimization
+- **Storage optimization:** Delta Lake format with Liquid Cluster optimization options
 
 ## Security & Governance - Less Surfaces to worry about! PII Automation!
 
