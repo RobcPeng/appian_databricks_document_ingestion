@@ -126,7 +126,7 @@ terraform output service_principal_secret
                 "on_wait_timeout": "CANCEL",
                 "statement": "SELECT * FROM {CATALOG}.{SCHEMA}.document_text_contents",
                 "wait_timeout": "30s",
-                "warehouse_id": "0ae475fa3a86f7bc"
+                "warehouse_id": "Example Warehouse ID (SQL Serverless Warehouse)"
             }
 ```
 
