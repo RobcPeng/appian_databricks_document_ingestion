@@ -80,6 +80,10 @@ external_storage_location = "s3://your-bucket/path/"
 service_principal_application_id = "your-app-id"
 EOF
 
+Note: service_principal_application_id is optional - you may use an existing service principal, but the current TF deployment creates a new one
+
+
+
 # Deploy infrastructure
 terraform init
 terraform apply
