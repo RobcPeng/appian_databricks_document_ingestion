@@ -33,9 +33,9 @@ A production-ready AI-powered document processing system designed for enterprise
 ### Data Flow Architecture
 
 ```
-📁 File Upload → 🥉 Bronze (Raw) → 🥈 Silver (Parsed) → 🥇 Gold (Embeddings)
-                      ↓              ↓                ↓
-                 Raw Storage     AI Processing    Vector Search
+📁 File Upload (POST)  → 🥉 Bronze (Raw) → 🥈 Silver (Parsed) → 🥇 Gold (Embeddings)
+                            ↓              ↓                ↓
+                        Raw Storage     AI Processing    Vector Search
 ```
 
 ### Technology Stack
@@ -102,6 +102,34 @@ terraform output service_principal_application_id
 terraform output service_principal_secret
 ```
 
+**Step 4: Appian Configuration**
+
+```bash
+# Within Appian
+    1. Create the Connected System
+        Base URL : Databricks Base URL - e.g.,m https://{your environment here}.cloud.databricks.com
+        Client ID: service_principal_application_id
+        Client Secret: service_principal_secret
+        Scope: all-apis (as an example)
+        Token Request Endpoint: https://{your environment here}.databricks.com/oidc/v1/token
+
+    2. Create the POST request
+        POST to: https://{Databricks Environment}/api/2.0/fs/files/{folderPath}"&rule!appian_rule_to_url_wrap_document
+
+    3. Create the GET request!
+        There are many different options to query against the data - for raw document reads against the gold layer:
+
+        Path: https://{Databricks Environment}/api/2.0/sql/statements
+        Timeout: At least 30 seconds
+        Request Body:
+            {
+                "on_wait_timeout": "CANCEL",
+                "statement": "SELECT * FROM {CATALOG}.{SCHEMA}.document_text_contents",
+                "wait_timeout": "30s",
+                "warehouse_id": "0ae475fa3a86f7bc"
+            }
+```
+
 ## 📊 Usage Guide
 
 ### Document Processing Workflow
@@ -109,8 +137,10 @@ terraform output service_principal_secret
 1. **Upload Documents**
 
    ```bash
-   # Upload to landing zone
-   aws s3 cp documents/ s3://your-bucket/volumes/landing_zone/file_uploads/ --recursive
+   # Upload to landing zone - Appian POST to
+   "
+        https://{Databricks Environment}/api/2.0/fs/files/{folderPath}"&rule!appian_rule_to_url_wrap_document
+
    ```
 
    **Supported Formats:** PDF, DOCX, XLSX, PNG, JPG
