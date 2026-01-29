@@ -5,3 +5,12 @@ resource "databricks_volume" "landing_zone" {
   volume_type  = "MANAGED"
   comment      = "Volume for raw data ingestion"
 }
+
+
+resource "databricks_volume" "artifacts" {
+  catalog_name = databricks_catalog.catalog.name
+  schema_name  = databricks_schema.bronze.name
+  name         = "artifacts"
+  volume_type  = "MANAGED"
+  comment      = "Volume for assorted artifacts"
+}
